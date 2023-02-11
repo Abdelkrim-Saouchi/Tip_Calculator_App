@@ -64,8 +64,7 @@ export default function createTipCalculator() {
   const fifteenPercent = createBtn('tip-btn', '15%');
   const twentyFivePercent = createBtn('tip-btn', '25%');
   const fiftyPercent = createBtn('tip-btn', '50%');
-  const custom = createBtn('tip-btn', 'Custom');
-  custom.id = 'custom';
+  const custom = createTextInput('custom', 'Custom');
 
   const percentages = document.createElement('div');
   percentages.id = 'percentages-div';
