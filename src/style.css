@@ -69,6 +69,7 @@ body {
   border-radius: 8px;
   padding: 5px 10px;
   margin-bottom: var(--space-between);
+  cursor: pointer;
 }
 
 #calculator #bill-input-wrapper {
@@ -88,6 +89,7 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 16px;
   margin-bottom: var(--space-between);
+  position: relative;
 }
 
 #calculator .tip-btn {
@@ -98,6 +100,7 @@ body {
   border-radius: 8px;
   color: var(--white);
   background-color: var(--very-dark-cyan);
+  cursor: pointer;
 }
 
 #calculator #custom {
@@ -166,6 +169,7 @@ body {
 /*active states */
 #calculator input:is(:focus, :active) {
   outline: 2px solid var(--strong-cyan);
+  cursor: pointer;
 }
 
 #calculator .tip-btn:is(:hover, :focus, :active) {
@@ -178,6 +182,34 @@ body {
 
 #result-panel .rest:is(:focus, :hover) {
   background-color: var(--light-grayish-cyan);
+  cursor: pointer;
+}
+
+/* manage invalid inputs */
+.error-msg {
+  display: block;
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+
+.invalid-percentage {
+  display: block;
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.invalid-border {
+  outline: 2px solid red;
 }
 
 @media (min-width: 970px) {

@@ -6,6 +6,9 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
+    tip_calculator: './src/tip_calculator.js',
+    calculator_logic: './src/calculator_logic.js',
+    display_controller: './src/display_controller.js',
   },
   devtool: 'inline-source-map',
   devServer: {

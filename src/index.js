@@ -1,11 +1,10 @@
 import './style.css';
-import createTipCalculator from './tip-calculator';
+import createTipCalculator from './tip_calculator';
 import logoIcon from './images/logo.svg';
+import renderPage from './display_controller';
 
 function createMainPage() {
   const body = document.querySelector('body');
-  //   const title = document.createElement('h1');
-  //   title.innerHTML = '<span>SPLI</span>TTER';
   const container = document.createElement('div');
   container.classList.add('container');
   const logo = new Image();
@@ -20,3 +19,4 @@ function createMainPage() {
 }
 
 createMainPage();
+renderPage();

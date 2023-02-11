@@ -52,7 +52,7 @@ export default function createTipCalculator() {
   resultPanel.id = 'result-panel';
 
   const bill = createSubTitle('Bill');
-  const billInput = createTextInput('bill-input-wrapper', '142.55');
+  const billInput = createTextInput('bill-input-wrapper', '0');
   const dollar = new Image();
   dollar.src = dollarIcon;
   dollar.id = 'dollar';
@@ -78,7 +78,7 @@ export default function createTipCalculator() {
   );
 
   const nOfPSubtitle = createSubTitle('Number of People');
-  const numberOfPeople = createTextInput('people-number-wrapper', '5');
+  const numberOfPeople = createTextInput('people-number-wrapper', '0');
   const personImg = new Image();
   personImg.src = personIcon;
   personImg.id = 'person-icon';
@@ -93,8 +93,8 @@ export default function createTipCalculator() {
     numberOfPeople
   );
 
-  const tipAmount = createResultComponent('Tip Amount', 4.27);
-  const total = createResultComponent('Total', 32.79);
+  const tipAmount = createResultComponent('Tip Amount', '0.00');
+  const total = createResultComponent('Total', '0.00');
   const restBtn = createBtn('rest', 'RESET');
 
   resultPanel.append(tipAmount, total, restBtn);
