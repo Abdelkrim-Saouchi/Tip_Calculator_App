@@ -87,7 +87,7 @@ function displayInvalidPercentage(inputElement, msg) {
   }
 }
 
-export default function renderPage() {
+export default function controlDisplay() {
   const billInput = document.querySelector('#bill-input-wrapper input');
   const peopleNumberInput = document.querySelector(
     '#people-number-wrapper input'

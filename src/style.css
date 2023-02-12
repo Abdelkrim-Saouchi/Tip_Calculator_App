@@ -7,8 +7,11 @@
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --red-color: red;
 
   --space-between: 40px;
+  --myfont: 'Space Mono';
+  --myfont-size: 24px;
 }
 
 *,
@@ -19,8 +22,8 @@
 }
 
 html {
-  font-family: 'Space Mono';
-  font-size: 24px;
+  font-family: var(--myfont);
+  font-size: var(--myfont-size);
 }
 
 body {
@@ -35,6 +38,7 @@ body {
   grid-template-rows: min-content min-content;
   grid-template-columns: auto;
   place-items: center;
+  margin-block: var(--space-between);
 }
 
 #logo {
@@ -60,8 +64,8 @@ body {
 #calculator input {
   background-color: var(--very-light-grayish-cyan);
   color: var(--very-dark-cyan);
-  font-size: 24px;
-  font-family: 'Space Mono';
+  font-size: var(--myfont-size);
+  font-family: var(--myfont);
   font-weight: 700;
   min-width: 100%;
   direction: rtl;
@@ -93,8 +97,8 @@ body {
 }
 
 #calculator .tip-btn {
-  font-size: 24px;
-  font-family: 'Space Mono';
+  font-size: var(--myfont-size);
+  font-family: var(--myfont);
   padding-block: 14px;
   border: 0;
   border-radius: 8px;
@@ -188,7 +192,7 @@ body {
 /* manage invalid inputs */
 .error-msg {
   display: block;
-  color: red;
+  color: var(--red-color);
   font-size: 12px;
   position: absolute;
   top: -30px;
@@ -197,7 +201,7 @@ body {
 
 .invalid-percentage {
   display: block;
-  color: red;
+  color: var(--red-color);
   font-size: 12px;
   position: absolute;
   bottom: -20px;
@@ -209,7 +213,7 @@ body {
 }
 
 .invalid-border {
-  outline: 2px solid red;
+  outline: 2px solid var(--red-color);
 }
 
 @media (min-width: 970px) {
@@ -235,7 +239,7 @@ body {
   }
 
   .result-wrapper h3 {
-    font-size: 24px;
+    font-size: var(--myfont-size);
   }
 
   .result-wrapper span {
