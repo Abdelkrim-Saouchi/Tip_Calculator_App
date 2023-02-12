@@ -1,7 +1,7 @@
 import './style.css';
 import createTipCalculator from './tip_calculator';
 import logoIcon from './images/logo.svg';
-import renderPage from './display_controller';
+import controlDisplay from './display_controller';
 
 function createMainPage() {
   const body = document.querySelector('body');
@@ -19,4 +19,4 @@ function createMainPage() {
 }
 
 createMainPage();
-renderPage();
+controlDisplay();

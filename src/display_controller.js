@@ -1,5 +1,18 @@
+/* eslint-disable no-param-reassign */
+import {
+  calculateTipAmountPerPerson,
+  calculateTotal,
+} from './calculator_logic';
+
+function reset(billInput, customInput, peopleNumber, tipAmount, totalPara) {
+  billInput.value = '0';
+  customInput.value = 'Custom';
+  peopleNumber.value = '0';
+  tipAmount.textContent = '$0.00';
+  totalPara.textContent = '$0.00';
+}
+
 function clearInput(event) {
-  // eslint-disable-next-line no-param-reassign
   event.target.value = '';
 }
 
@@ -13,6 +26,28 @@ function isZero(input) {
 
 function isValidPercentage(input) {
   return isNumber(input.split('%').join(''));
+}
+
+function calculate(bill, percentage, peopleNumber, tipAmount, totalPara) {
+  const tipAmountPerPerson = calculateTipAmountPerPerson(
+    bill,
+    percentage.split('%').join(''),
+    peopleNumber
+  );
+  const total = calculateTotal(bill, peopleNumber, tipAmountPerPerson);
+  tipAmount.textContent = `$${tipAmountPerPerson.toFixed(2)}`;
+  totalPara.textContent = `$${total.toFixed(2)}`;
+}
+
+function areInputsValid(billInput, peopleNumberInput) {
+  if (
+    isNumber(billInput.value) &&
+    isNumber(peopleNumberInput.value) &&
+    !isZero(peopleNumberInput.value)
+  ) {
+    return true;
+  }
+  return false;
 }
 
 function displayInvalidMsg(inputElement, msg) {
@@ -58,6 +93,10 @@ export default function renderPage() {
     '#people-number-wrapper input'
   );
   const customInput = document.querySelector('#custom input');
+  const tipAmount = document.querySelector('.result-wrapper #tip-amount');
+  const totalPara = document.querySelector('.result-wrapper #total');
+  const percentageBtns = Array.from(document.querySelectorAll('.tip-btn'));
+  const resetBtn = document.querySelector('.reset');
 
   billInput.addEventListener('click', clearInput);
   peopleNumberInput.addEventListener('click', clearInput);
@@ -66,16 +105,43 @@ export default function renderPage() {
   billInput.addEventListener('input', () => {
     displayInvalidMsg(billInput, '* Must be Number');
   });
+
   peopleNumberInput.addEventListener('input', () => {
-    console.log(isZero(peopleNumberInput.value));
     if (isZero(peopleNumberInput.value)) {
-      console.log('zero');
       displayInvalidMsg(peopleNumberInput, '* Must not be Zero');
     } else {
       displayInvalidMsg(peopleNumberInput, '* Must be Number');
     }
   });
+
   customInput.addEventListener('input', () => {
     displayInvalidPercentage(customInput, '* Invalid Percentage');
+    if (isValidPercentage(customInput.value)) {
+      calculate(
+        billInput.value,
+        customInput.value,
+        peopleNumberInput.value,
+        tipAmount,
+        totalPara
+      );
+    }
+  });
+
+  percentageBtns.forEach((percentageBtn) => {
+    percentageBtn.addEventListener('click', (e) => {
+      if (areInputsValid(billInput, peopleNumberInput)) {
+        calculate(
+          billInput.value,
+          e.target.textContent,
+          peopleNumberInput.value,
+          tipAmount,
+          totalPara
+        );
+      }
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    reset(billInput, customInput, peopleNumberInput, tipAmount, totalPara);
   });
 }

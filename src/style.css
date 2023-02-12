@@ -155,7 +155,7 @@ body {
   font-size: 12px;
 }
 
-#result-panel .rest {
+#result-panel .reset {
   background-color: var(--strong-cyan);
   color: var(--very-dark-cyan);
   min-width: 100%;
@@ -172,7 +172,7 @@ body {
   cursor: pointer;
 }
 
-#calculator .tip-btn:is(:hover, :focus, :active) {
+#calculator .tip-btn:is(:hover, :focus) {
   background-color: var(--strong-cyan);
 }
 
@@ -180,7 +180,7 @@ body {
   outline: 2px solid var(--strong-cyan);
 }
 
-#result-panel .rest:is(:focus, :hover) {
+#result-panel .reset:is(:focus, :hover) {
   background-color: var(--light-grayish-cyan);
   cursor: pointer;
 }

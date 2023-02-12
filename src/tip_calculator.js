@@ -25,7 +25,7 @@ function createBtn(clas, text) {
   return btn;
 }
 
-function createResultComponent(text, rslt) {
+function createResultComponent(id, text, rslt) {
   const wrapper = document.createElement('div');
   wrapper.classList.add('result-wrapper');
   const subTitle = document.createElement('h3');
@@ -36,6 +36,7 @@ function createResultComponent(text, rslt) {
 
   const result = document.createElement('P');
   result.textContent = `$${rslt}`;
+  result.id = id;
 
   subTitle.appendChild(span);
   wrapper.append(subTitle, result);
@@ -93,9 +94,9 @@ export default function createTipCalculator() {
     numberOfPeople
   );
 
-  const tipAmount = createResultComponent('Tip Amount', '0.00');
-  const total = createResultComponent('Total', '0.00');
-  const restBtn = createBtn('rest', 'RESET');
+  const tipAmount = createResultComponent('tip-amount', 'Tip Amount', '0.00');
+  const total = createResultComponent('total', 'Total', '0.00');
+  const restBtn = createBtn('reset', 'RESET');
 
   resultPanel.append(tipAmount, total, restBtn);
 
