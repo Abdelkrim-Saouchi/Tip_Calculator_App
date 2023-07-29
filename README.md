@@ -22,8 +22,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [here](https://github.com/karim-saou/Tip_Calculator_App)
-- Live Site URL: [here](https://karim-saou.github.io/Tip_Calculator_App/)
+- Solution URL: [here](https://github.com/Abdelkrim-Saouchi/Tip_Calculator_App)
+- Live Site URL: [here](https://abdelkrim-saouchi.github.io/Tip_Calculator_App/)
 
 ## My process
 
